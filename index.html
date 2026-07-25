@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mahi</title>
+<style>
+body{
+    margin:0;
+    padding:10px;
+    font-family:Arial,sans-serif;
+    background: linear-gradient(to bottom, #020111, #191970, #000428);
+    display:block;
+
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    box-sizing: border-box;
+
+}
+@media (max-width:600px){
+.container{
+    text-align:center;
+    width:95%;
+    max-width:380px;
+    margin:30px auto;
+    box-sizing:border-box;
+    background:rgba(255,255,255,0.15);
+    padding:30px;
+    border-radius:20px;
+    color:white;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 25px rgba(255,255,255,.5);
+}
+
+h1{
+    font-size:45px;
+    animation:glow 1.5s infinite alternate;
+}
+
+h2{
+    font-size:35px;
+}
+button{
+    padding:15px 30px;
+    font-size:20px;
+    border:none;
+    border-radius:30px;
+    background:#ff0080;
+    color:white;
+    cursor:pointer;
+    margin-top:20px;
+    box-shadow:0 0 20px #ff00ff;
+    animation:glowButton 1.5s infinite alternate;
+    transition:0.3s;
+}
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+@keyframes glowButton{
+    from{
+        box-shadow:0 0 20px #ff00ff;
+    }
+    to{
+        box-shadow:0 0 40px #ff00ff,0 0 70px #ff66cc;
+    }
+}
+#message{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px white;
+    }
+    to{
+        text-shadow:0 0 30px yellow,0 0 50px orange;
+    }
+}
+#fireworks{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+.hearts::before,
+.hearts::after{
+    content:"❤️ ❤️ ❤️ ❤️ ❤️";
+    position:fixed;
+    width:100%;
+    left:0;
+    font-size:30px;
+    animation:floatHearts 8s linear infinite;
+}
+
+.hearts::after{
+    top:50%;
+    animation-delay:4s;
+}
+
+@keyframes floatHearts{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+.balloons{
+    position:fixed;
+    bottom:-100px;
+    width:100%;
+    text-align:center;
+    font-size:45px;
+    animation:fly 10s linear infinite;
+}
+
+@keyframes fly{
+    0%{
+        transform:translateY(0);
+    }
+    100%{
+        transform:translateY(-120vh);
+    }
+}
+.photo{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    box-shadow:0 0 25px pink;
+    margin:20px auto;
+    display:block;
+}
+@keyframes glowPhoto{
+    from{
+        transform: scale(1);
+        box-shadow: 0 0 20px #fff,
+                    0 0 40px #ff00ff,
+                    0 0 60px #00ffff;
+    }
+    to{
+        transform: scale(1.08);
+        box-shadow: 0 0 30px #fff,
+                    0 0 60px #ff00ff,
+                    0 0 90px #00ffff;
+    }
+}
+.stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+
+}
+.heart{
+    position:fixed;
+    color:red;
+    font-size:25px;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+.photo:active{
+    transform: scale(1.15) rotate(5deg);
+    transition: 0.4s;
+}
+.cake{
+    font-size:70px;
+    margin-top:15px;
+    animation:cakeBounce 1.5s infinite;
+}
+
+@keyframes cakeBounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+#welcome{
+    position:fixed;
+    padding:20px;
+    text-align:center;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#welcome h1{
+    color:white;
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+#welcome button{
+    padding:18px 35px;
+    font-size:22px;
+    border:none;
+    border-radius:40px;
+    background:#ff1493;
+    color:white;
+    cursor:pointer;
+}
+#welcome button{
+    padding:18px 35px;
+    font-size:22px;
+    border:none;
+    border-radius:40px;
+    background:#ff1493;
+    color:white;
+    cursor:pointer;
+}
+
+@media (max-width:768px){
+    .container{
+        width:90%;
+        padding:20px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    .photo{
+        width:150px;
+        height:150px;
+    }
+
+    button{
+        width:100%;
+        font-size:18px;
+        padding:15px;
+    }
+
+    #message{
+        font-size:18px;
+    }
+}
+@media (max-width:600px){
+    .container{
+        width:95%;
+        margin:20px auto;
+        padding:20px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    .photo{
+        width:140px;
+        height:140px;
+    }
+
+    button{
+        width:100%;
+        font-size:18px;
+    }
+
+    body{
+        align-items:flex-start;
+        overflow-y:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+    <div id="welcome">
+    <h1>🎉 Happy Birthday Mahi 🎉</h1>
+    <button onclick="startPage()">❤️ Tap to Start ❤️</button>
+</div>
+    
+    <div class="hearts"></div>
+    <div class="balloons">
+  🎈 🎈 🎈 🎈 🎈 🎈
+</div>
+
+<div class="container">
+    <h1>🎂 Happy Birthday 🎂</h1>
+    <h2>Mahi ❤️</h2>
+<img src="mahi.jpeg" alt="Mahi" class="photo">
+<div class="cake">🎂</div>
+<div id="gift">🎁</div>
+    <button onclick="showMessage()">🎁 Open Surprise</button>
+
+    <p id="message"></p>
+</div>
+<script>
+function showMessage() {
+    const text = "🎉 Happy Birthday Mahi! 🎂\n\nMay all your dreams come true. Stay happy, stay blessed, and keep smiling always! ❤️🥳";
+
+let i = 0;
+document.getElementById("message").innerHTML = "";
+
+let typing = setInterval(() => {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML +=
+            text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+        i++;
+    } else {
+        clearInterval(typing);
+    }
+}, 50);
+document.getElementById("birthdayMusic").currentTime=0;
+document.getElementById("birthdayMusic").play();
+startFireworks();  
+setInterval(createHeart, 300);
+
+confetti({
+    particleCount: 300,
+    spread: 180,
+    origin: { y: 0.6 }
+});
+
+function startFireworks() {
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height / 2;
+
+            ctx.beginPath();
+            ctx.arc(x, y, 30, 0, Math.PI * 2);
+            ctx.fillStyle = `hsl(${Math.random()*360},100%,60%)`;
+            ctx.fill();
+
+            setTimeout(() => {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+            },300);
+        }, i * 250);
+    }
+}
+}
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+
+        document.body.appendChild(heart);}
+    setTimeout(function () {
+    document.getElementById("welcome").style.display = "flex";
+    document.querySelector("#welcome h1").innerHTML =
+        "💖 Happy Birthday Mahi! 💖<br><br>May your life be filled with happiness, success and endless smiles! 🎂🎉🌹";
+    document.querySelector("#welcome button").innerHTML = "🎁 Continue";
+}, 5000);
+function startPage(){
+    document.getElementById("welcome").style.display="none";
+   
+}
+</script>
+<canvas id="confetti"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js">
+    </script>
+
+<audio id="birthdayMusic" loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+<canvas id="fireworks"></canvas>
+</body>
+</html>
